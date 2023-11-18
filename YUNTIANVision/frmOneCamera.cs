@@ -586,7 +586,7 @@ namespace YUNTIANVision
         #region 初始化读码设置
         private void loadCodeSet()
         {
-            string isOpen = IniHelper.SaveSetIni.Read("单相机读码设置", "是否启用读码");
+            string isOpen = IniHelper.SaveSetIni.Read("单相机读码设置", "是否启用");
             if (String.IsNullOrEmpty(isOpen))
             {
                 cbEnableCode.Checked = false;
@@ -653,8 +653,8 @@ namespace YUNTIANVision
         #region 初始化相机的各种参数
         private void loadOneCameraSet()
         {
-            if (!String.IsNullOrEmpty(IniHelper.SaveSetIni.Read("相机", "NG信号1")))
-                label9.Text = IniHelper.SaveSetIni.Read("相机", "NG信号1");
+            if (!String.IsNullOrEmpty(IniHelper.SaveSetIni.Read("相机1", "NG信号1")))
+                label9.Text = IniHelper.SaveSetIni.Read("相机1", "NG信号1");
             btHandTest.Enabled = false;
             cbGrayOrRgb.Items.Add("黑白");
             cbGrayOrRgb.Items.Add("彩色");
@@ -1767,14 +1767,14 @@ namespace YUNTIANVision
                 tbCodeAddress.Enabled = true;
                 tbCodeLength.Enabled = true;
                 tbCodeResult.Enabled = true;
-                IniHelper.SaveSetIni.Write("单相机读码设置", "是否启用读码", "T");
+                IniHelper.SaveSetIni.Write("单相机读码设置", "是否启用", "T");
             }
             else
             {
                 tbCodeAddress.Enabled = false;
                 tbCodeLength.Enabled = false;
                 tbCodeResult.Enabled = false;
-                IniHelper.SaveSetIni.Write("单相机读码设置", "是否启用读码", "F");
+                IniHelper.SaveSetIni.Write("单相机读码设置", "是否启用", "F");
             }
         }
         #endregion

@@ -440,8 +440,9 @@ namespace YUNTIANVision
         {
 
         }
+        #endregion
 
-
+        #region 关闭测试模式
         private void frmTwoCamera_FormClosing(object sender, FormClosingEventArgs e)
         {
             // 关闭测试模式
@@ -524,7 +525,6 @@ namespace YUNTIANVision
             hWindowControl1.MouseWheel -= new System.Windows.Forms.MouseEventHandler(this.my_MouseWheel);
             hWindowControl2.MouseWheel -= new System.Windows.Forms.MouseEventHandler(this.my_MouseWhee2);
         }
-
         // Resize 事件处理程序
         private void Form_Resize(object sender, EventArgs e)
         {
@@ -574,7 +574,7 @@ namespace YUNTIANVision
         // 初始化读码设置
         private void loadCodeSet()
         {
-            string isOpen = IniHelper.SaveSetIni.Read("双相机读码设置", "是否启用读码");
+            string isOpen = IniHelper.SaveSetIni.Read("双相机读码设置", "是否启用");
             if (String.IsNullOrEmpty(isOpen))
             {
                 cbEnableCode.Checked = false;
@@ -2342,14 +2342,14 @@ namespace YUNTIANVision
                 tbCodeAddress.Enabled = true;
                 tbCodeLength.Enabled = true;
                 tbCodeResult.Enabled = true;
-                IniHelper.SaveSetIni.Write("双相机读码设置", "是否启用读码", "T");
+                IniHelper.SaveSetIni.Write("双相机读码设置", "是否启用", "T");
             }
             else
             {
                 tbCodeAddress.Enabled = false;
                 tbCodeLength.Enabled = false;
                 tbCodeResult.Enabled = false;
-                IniHelper.SaveSetIni.Write("双相机读码设置", "是否启用读码", "F");
+                IniHelper.SaveSetIni.Write("双相机读码设置", "是否启用", "F");
             }
         }
         #endregion
@@ -4318,6 +4318,7 @@ namespace YUNTIANVision
                 Thread runListenSerialPort2Thread = new Thread(runListenSerialPortTwoThread);
                 runListenSerialPort2Thread.IsBackground = true;
                 runListenSerialPort2Thread.Start();
+                IniHelper.SaveSetIni.Write("双信号设置", "是否启用", "T");
             }
             else
             {
@@ -4325,6 +4326,7 @@ namespace YUNTIANVision
                 countdown.Reset(2);
                 countdownTwo.Reset(0);
                 hasTwoSignal = false;
+                IniHelper.SaveSetIni.Write("双信号设置", "是否启用", "F");
             }
         }
     }

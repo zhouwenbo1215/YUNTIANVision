@@ -399,7 +399,7 @@
             this.groupBox4.Size = new System.Drawing.Size(739, 188);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "PLC设置";
+            this.groupBox4.Text = "串口设置";
             // 
             // btClosePlc1
             // 

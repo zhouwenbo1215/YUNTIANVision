@@ -1,4 +1,5 @@
 YUNTIANVision/bin/
-#YUNTIANVision/bin/x64
 Setup/
 packages/
+.vs/
+YUNTIANVision/obj/
